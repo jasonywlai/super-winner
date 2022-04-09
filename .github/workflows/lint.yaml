@@ -27,4 +27,4 @@ jobs:
 
       - name: Lint
         run: lintr::lint_package()
-        shell: Rscript [--no-init-file] {0}
+        shell: Rscript {0}
