@@ -15,6 +15,7 @@ jobs:
       group: pkgdown-${{ github.event_name != 'pull_request' || github.run_id }}
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+
     steps:
       - uses: actions/checkout@v2
 
@@ -39,8 +40,9 @@ jobs:
 
       - name: Build site
         working-directory: ./bookdown_test
-#        run: bookdown::render_book("index.Rmd", quiet = TRUE)
-        run: renv::paths$library()
+        run: |
+          renv::restore()
+          bookdown::render_book("index.Rmd", quiet = TRUE)
         shell: Rscript {0}
 
 #      - name: Deploy to GitHub pages 🚀
