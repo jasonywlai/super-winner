@@ -7,7 +7,7 @@ on:
     branches: [main]
     paths: ["R/**"]
 
-name: Document
+name: document
 
 jobs:
   document:
