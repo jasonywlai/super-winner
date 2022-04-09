@@ -16,6 +16,7 @@ goodbye <- function() {
 #'
 #' @export
 #'
+#'
 another_one <- function() {
   print("another one")
 }
