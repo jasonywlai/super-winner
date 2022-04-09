@@ -18,8 +18,8 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0
-          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 1
+          ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Setup R
         uses: r-lib/actions/setup-r@v2
