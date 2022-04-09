@@ -2,18 +2,17 @@
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
 on:
   push:
-    branches: [main]
+    branches: [main, master]
   pull_request:
-    branches: [main]
+    branches: [main, master]
 
-name: renv-test
+name: lint
 
 jobs:
-  R-CMD-check:
+  lint:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      R_KEEP_PKG_SOURCE: yes
     steps:
       - uses: actions/checkout@v2
 
@@ -21,10 +20,11 @@ jobs:
         with:
           use-public-rspm: true
 
-      - uses: r-lib/actions/setup-renv@v2
+      - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          cache-version: 1
+          extra-packages: any::lintr
+          needs: lint
 
-      - name: Install package using renv
-        run: renv::install("ggplot2")
+      - name: Lint
+        run: lintr::lint_package()
         shell: Rscript {0}
