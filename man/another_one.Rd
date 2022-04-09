@@ -10,5 +10,5 @@ another_one()
 Another function to test roxygen automation
 }
 \details{
-Yet another one
+Yet another one, this time with an actual change
 }
