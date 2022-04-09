@@ -20,9 +20,13 @@ jobs:
         with:
           use-public-rspm: true
 
+      - name: alias Rscript
+        run: alias Rscript="Rscript --no-init-file"
+        shell: bash
+
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          packages: any::lintr
+          extra-packages: any::lintr
           needs: lint
 
       - name: Lint
