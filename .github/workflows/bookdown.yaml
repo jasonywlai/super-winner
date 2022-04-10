@@ -39,10 +39,10 @@ jobs:
           restore-keys: bookdown-
 
       - name: Build site
-        working-directory: ./bookdown_test
+        # working-directory: ./bookdown_test
         run: |
-          renv::restore()
-          bookdown::render_book("index.Rmd", quiet = TRUE)
+          # renv::restore()
+          bookdown::render_book("bookdown_test", quiet = TRUE)
         shell: Rscript {0}
 
 #      - name: Deploy to GitHub pages 🚀
