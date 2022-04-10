@@ -15,7 +15,6 @@ jobs:
       group: pkgdown-${{ github.event_name != 'pull_request' || github.run_id }}
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-
     steps:
       - uses: actions/checkout@v2
 
@@ -45,9 +44,9 @@ jobs:
           bookdown::render_book("bookdown_test", quiet = TRUE)
         shell: Rscript {0}
 
-     - name: Deploy to GitHub pages 🚀
-       if: github.event_name != 'pull_request'
-       uses: JamesIves/github-pages-deploy-action@4.1.4
-       with:
-         branch: bookdown_test
-         folder: bookdown_test/_book
+      - name: Deploy to GitHub pages 🚀
+        if: github.event_name != 'pull_request'
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: bookdown_test
+          folder: bookdown_test/_book
