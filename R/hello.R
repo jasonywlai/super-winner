@@ -19,4 +19,3 @@ goodbye <- function() {
 another_one <- function() {
   print("another one")
 }
-
