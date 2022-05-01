@@ -1,18 +1,22 @@
-# Hello, world!
-#
-# This is an example function named 'hello' 
-# which prints 'Hello, world!'.
-#
-# You can learn more about package authoring with RStudio at:
-#
-#   http://r-pkgs.had.co.nz/
-#
-# Some useful keyboard shortcuts for package authoring:
-#
-#   Install Package:           'Cmd + Shift + B'
-#   Check Package:             'Cmd + Shift + E'
-#   Test Package:              'Cmd + Shift + T'
-
 hello <- function() {
   print("Hello, world!")
 }
+
+goodbye <- function() {
+  print("goodbye!")
+}
+
+#' @title Another One
+#'
+#' @description
+#' Another function to test roxygen automation
+#'
+#' @details
+#' Yet another one, this time with an actual change
+#'
+#' @export
+#'
+another_one <- function() {
+  print("another one")
+}
+
