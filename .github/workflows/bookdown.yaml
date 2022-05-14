@@ -24,9 +24,10 @@ jobs:
         with:
           use-public-rspm: true
 
-      - name: Install System Dependencies
+      - name: Install System Dependencies and set .Rprofile
         run: |
           sudo apt-get install libcurl4-openssl-dev libharfbuzz-dev libfribidi-dev
+          echo 'options(repos = c(CRAN = "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"))' > ~/.Rprofile
 
       - uses: r-lib/actions/setup-renv@v2
 
